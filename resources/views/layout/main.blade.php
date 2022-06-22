@@ -23,14 +23,19 @@
         <div class="row">
           <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
             <h5 class="text-uppercase">Bandung Elektronika</h5>
+            <h6>Hubungi Kami</h6>
             <p>
-              Penjelasan mengenai bandung elektronika seperti alamat, berdirinya, dan lain-lain tinggal mengisi mengarang dan mencari di internet
+                    Telp:
+                <br>Email:
             </p>
+
           </div>
           <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
             <h5 class="text-uppercase">Follow Us</h5>
             <div class="col">
-              <a class="" href="#"><i class=""></i></a>
+              <a href="/#" style="text-decoration: none; color: inherit"><i class="fab fa-facebook-square fa-2x"></i></a>
+              <a href="/#" style="text-decoration: none; color: inherit"><i class="fab fa-twitter-square fa-2x"></i></a>
+              <a href="/#" style="text-decoration: none; color: inherit"><i class="fab fa-instagram-square fa-2x"></i></a>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
