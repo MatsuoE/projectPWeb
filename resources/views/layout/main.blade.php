@@ -23,6 +23,7 @@
         <div class="row">
           <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
             <h5 class="text-uppercase">Bandung Elektronika</h5>
+            <p>Jalan Hayam Wuruk No. 5 Kediri Kota</p>
             <h6>Hubungi Kami</h6>
             <p>
                     Telp:
