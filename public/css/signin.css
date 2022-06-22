@@ -1,0 +1,27 @@
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+}
+
+.form-signin .form-regist .form-floating:focus-within {
+  z-index: 2
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: 5px;
+  border-radius: 1;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-radius: 1;
+}
+
+.form-regist {
+  max-width: 330px;
+  padding: 15px;
+}
+
+.form-regist input {
+  border-radius: 1;
+}
