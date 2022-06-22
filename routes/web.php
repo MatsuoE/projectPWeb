@@ -115,4 +115,7 @@ Route::get('/dashboard/admin', function(){
 //     ]);
 // });
 
-Route::get('/dashboardmember/profile/view', [profileDashboardController::class, 'index'])->middleware('member');
+Route::get('/dashboardmember/profile/view', [profileDashboardController::class, 'show'])->middleware('member');
+Route::get('/dashboardmember/profile/{User:id}/edit', [profileDashboardController::class, 'edit'])->middleware('member');
+Route::resource('/dashboardmember/profile/edit', profileDashboardController::class)->middleware('member');
+Route::put('/dashboardmember/profile/{User:id}/edit', [profileDashboardController::class, 'update'])->middleware('member');

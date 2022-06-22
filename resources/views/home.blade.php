@@ -5,7 +5,7 @@
       @foreach($category as $category)
         <h4 class="text-center">{{ $category->name }}</h4>
         @for ($i = 0; $i < 1; $i++)
-              @foreach($category->product->take(3) as $p)
+              @foreach($category->product->sortDesc()->take(3) as $p)
           <div class="col-md-3">
             <a href="/product/{{ $p->slug }}">
             <div class="card" style="width: 18rem;">

@@ -90,7 +90,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <img src="{{ asset("/dashboard_template") }}/dist/img/default-avatar.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="/dashboard/profil" class="d-block">{{ auth()->user()->name }}</a>
+          <p style="color: white" class="d-block">{{ auth()->user()->name }}</p>
         </div>
       </div>
 
