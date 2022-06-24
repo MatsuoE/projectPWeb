@@ -6,7 +6,6 @@
         <img src="/img/logo.jpg" class="circle d-block mt-3" alt="Logo Bandung Elektronika" style="border-radius: 10%">
     </div>
     <div class="col-lg-7 my-auto">
-<<<<<<< HEAD
         <h6 style="font-weight: bold">Deskripsi Toko</h6>
         <p>Retail & Grosir Produk Elektronika, Camera & Gadget,<br> Kami berlokasi di kota Kediri Jawa Timur dan sudah beroperasi lebih dari 30 tahun.</p>
         
@@ -14,15 +13,6 @@
         <p>May 2015</p>
 
         <h6 style="font-weight: bold">Kebijakan Pengiriman</h6>
-=======
-        <h6>Deskripsi Toko</h6>
-        <p>Retail & Grosir Produk Elektronika, Camera & Gadget,<br> Kami berlokasi di kota Kediri Jawa Timur dan sudah beroperasi lebih dari 30 tahun.</p>
-        
-        <h6>Buka Sejak</h6>
-        <p>May 2015</p>
-
-        <h6>Kebijakan Pengiriman</h6>
->>>>>>> 62468ef1fe83067b92f33315c2943ac779235f74
         <p class="small">UNTUK PEMBELIAN PRODUK DI TOKO KAMI, HARAP CHAT TERLEBIH DAHULU UNTUK MENENTUKAN ONGKOS KIRIM YANG SESUAI DENGAN TUJUAN ALAMAT ANDA.<br>
             Jika Anda menginginkan produk yang tidak ada di dalam daftar produk kami, harap bisa chat kepada kami dan akan kami tambahkan segera produk yang Anda inginkan.
         </p>

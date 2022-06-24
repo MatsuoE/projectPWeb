@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\addAdminController;
 use App\Http\Controllers\adminCategoryController;
 use App\Models\product;
 use App\Models\category;
@@ -11,6 +12,7 @@ use App\Http\Controllers\productController;
 use App\Http\Controllers\allProductController;
 use App\Http\Controllers\allCategoryController;
 use App\Http\Controllers\DashboardPostController;
+use App\Http\Controllers\profileAdminController;
 use App\Http\Controllers\profileDashboardController;
 use App\Models\User;
 
@@ -119,3 +121,9 @@ Route::get('/dashboardmember/profile/view', [profileDashboardController::class, 
 Route::get('/dashboardmember/profile/{User:id}/edit', [profileDashboardController::class, 'edit'])->middleware('member');
 Route::resource('/dashboardmember/profile/edit', profileDashboardController::class)->middleware('member');
 Route::put('/dashboardmember/profile/{User:id}/edit', [profileDashboardController::class, 'update'])->middleware('member');
+
+Route::get('/dashboard/data/add', [addAdminController::class, 'index'])->middleware('isAdmin');
+Route::post('/dashboard/data/add', [addAdminController::class, 'store'])->middleware('isAdmin');
+
+Route::get('/dashboard/profile', [profileAdminController::class, 'index'])->middleware('isAdmin');
+Route::put('/dashboard/profile', [profileAdminController::class, 'update'])->middleware('isAdmin');

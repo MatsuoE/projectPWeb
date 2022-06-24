@@ -1,10 +1,17 @@
 @extends('layout.dashboard')
 @section('content')
+
+@if(Session::get('success'))
+<div class="alert alert-success" role="alert">
+  <p> {{ 'New admin has been added' }} </p>
+</div>
+@endif
+
 <div class="card">
   <div class="mt-3 mb-3 mr-4 text-right">
-    <form action="#">
+    <a href="/dashboard/data/add">
       <button type="button" class="btn btn-primary">Add new admin</button>
-    </form>
+    </a>
     </div>
 <table class="table table-bordered">
     <thead>
@@ -23,7 +30,7 @@
         <td>{{ $user->name }}</td>
         <td>{{ $user->email }}</td>
         <td>
-            @if($user->is_admin == 0)
+            @if($user->isAdmin == 0)
             {{ 'Member' }}
             @else
             {{ 'Admin' }}

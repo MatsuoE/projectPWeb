@@ -87,10 +87,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="{{ asset("/dashboard_template") }}/dist/img/default-avatar.png" class="img-circle elevation-2" alt="User Image">
+          <img src="{{ asset('storage/' . auth()->user()->image) }}" class="img-circle elevation-2" alt="{{ auth()->user()->name }}">
         </div>
         <div class="info">
-          <a href="/dashboard/profil" class="d-block">{{ auth()->user()->name }}</a>
+          <a href="/dashboard/profile" class="d-block">{{ auth()->user()->name }}</a>
         </div>
       </div>
 

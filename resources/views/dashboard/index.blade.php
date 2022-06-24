@@ -79,7 +79,7 @@
               </tr>
             </thead>
             @php $no = 0; @endphp
-            @foreach ($product -> slice(-5) as $product) 
+            @foreach ($product -> slice(-5) -> sortDesc() as $product) 
     <tbody>
       <tr>
         <th scope="row">{{ ++$no }}</th>
