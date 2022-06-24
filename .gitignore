@@ -1,3 +1,13 @@
+/app
+/bootstrap
+/config
+/database
+/public
+/resource
+/routes
+/storage
+/tests
+
 /node_modules
 /public/hot
 /public/storage
