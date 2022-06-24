@@ -15,7 +15,7 @@ class profileDashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard.profile.edit',[
+        return view('dashboardmember.profile.edit',[
             'title' => 'Edit Profile',
             'user' => auth()->user()
         ]);
@@ -50,7 +50,7 @@ class profileDashboardController extends Controller
      */
     public function show(User $user)
     {
-        return view('dashboard.profile.view', [
+        return view('dashboardmember.profile.view', [
             'user' => auth()->user(),
             'title' => 'My Profile'
         ]);
@@ -64,7 +64,7 @@ class profileDashboardController extends Controller
      */
     public function edit(User $user)
     {
-        return view('dashboard.profile.edit',[
+        return view('dashboardmember.profile.edit',[
             'title' => 'Edit Profile',
             'user' => auth()->user()
         ]);

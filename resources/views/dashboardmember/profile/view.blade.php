@@ -11,10 +11,26 @@
       <div class="col-md-12 mt-4 d-flex">
         <div class="col-sm-8">
           <div class="card">
-            <p>Name     : {{ $user->name }}</p>
-            <p>Email    : {{ $user->email }}</p>
-            <p>Alamat   : {{ $user->address }}</p>
-            <p>No HP    : {{ $user->number }}</p>
+            <table class="table">
+              <tbody>
+                <tr>
+                  <th scope="row">Name</th>
+                  <td>{{ $user->name }}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Email</th>
+                  <td>{{ $user->email }}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Alamat</th>
+                  <td>{{ $user->address }}</td>
+                </tr>
+                <tr>
+                  <th scope="row">No HP</th>
+                  <td>{{ $user->number }}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
         <div class="col-md-4 d-flex justify-content-center">
