@@ -29,16 +29,16 @@
           <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
             <h6>Hubungi Kami</h6>
             <p>
-                    Telp:
+                    Telp: 0815-5640-6573
                 <br>Email:
             </p>
           </div>
           <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
             <h5 class="text-uppercase">Follow Us</h5>
             <div class="col">
-              <a href="/#" style="text-decoration: none; color: inherit"><i class="fab fa-facebook-square fa-2x"></i></a>
-              <a href="/#" style="text-decoration: none; color: inherit"><i class="fab fa-twitter-square fa-2x"></i></a>
-              <a href="/#" style="text-decoration: none; color: inherit"><i class="fab fa-instagram-square fa-2x"></i></a>
+              <a href="https://www.facebook.com/Bandung-Elektronika-Kediri-105802081189248/" target="_blank" style="text-decoration: none; color: inherit"><i class="fab fa-facebook-square fa-2x"></i></a>
+              <a href="https://twitter.com/bandung_electro" target="_blank" style="text-decoration: none; color: inherit"><i class="fab fa-twitter-square fa-2x"></i></a>
+              <a href="https://www.instagram.com/bandungelektronika/" target="_blank" style="text-decoration: none; color: inherit"><i class="fab fa-instagram-square fa-2x"></i></a>
             </div>
           </div>
           <div class="col-lg-2 col-md-6 mb-4 mb-md-0">

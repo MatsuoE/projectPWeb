@@ -15,19 +15,43 @@
               <tbody>
                 <tr>
                   <th scope="row">Name</th>
-                  <td>{{ $user->name }}</td>
+                  <td>
+                    @if($user->name == NULL)
+                    -
+                    @else
+                    {{ $user->name }}
+                    @endif
+                  </td>
                 </tr>
                 <tr>
                   <th scope="row">Email</th>
-                  <td>{{ $user->email }}</td>
+                  <td>
+                    @if($user->email == NULL)
+                    -
+                    @else
+                    {{ $user->email }}
+                    @endif
+                  </td>
                 </tr>
                 <tr>
                   <th scope="row">Alamat</th>
-                  <td>{{ $user->address }}</td>
+                  <td>
+                    @if($user->address == NULL)
+                    -
+                    @else
+                    {{ $user->address }}
+                    @endif
+                  </td>
                 </tr>
                 <tr>
                   <th scope="row">No HP</th>
-                  <td>{{ $user->number }}</td>
+                  <td>
+                    @if($user->number == NULL)
+                    -
+                    @else
+                    {{ $user->number }}
+                    @endif
+                  </td>
                 </tr>
               </tbody>
             </table>
