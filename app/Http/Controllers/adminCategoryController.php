@@ -44,7 +44,7 @@ class adminCategoryController extends Controller
         ]);
 
         category::create($validatedData);
-        return redirect('/dashboard/products/allcategory');
+        return redirect('/dashboard/products/allcategory')->with('success', 'New category has been added');
     }
 
     /**

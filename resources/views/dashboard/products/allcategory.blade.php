@@ -1,5 +1,12 @@
 @extends('layout.dashboard')
 @section('content')
+
+@if(Session::get('success'))
+<div class="alert alert-success" role="alert">
+  <p> {{ 'New category has been added' }} </p>
+</div>
+@endif
+
 <div class="card">
   <div class="mt-3 mb-3 mr-4 text-right">
     <form action="/dashboard/products/allcategory/create">
