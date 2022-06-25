@@ -31,7 +31,12 @@
     <div class="col-6 col-lg-3">
       <div class="small-box bg-warning">
         <div class="inner">
-          <h3>{{ count($user) }}</h3>
+          @php $member = 0; @endphp
+          @foreach ($user as $user)
+          @if($user->isAdmin == 0)
+          <h3>{{ ++$member }}</h3>
+          @endif
+          @endforeach
           <p>Member</p>
         </div>
         <div class="icon">

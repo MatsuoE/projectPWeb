@@ -27,7 +27,8 @@
     <tbody>
       <tr>
         @if($user->isAdmin == 1)
-        <th scope="row">{{ $user->id }}</th>
+        @php $no = 0; @endphp
+        <th scope="row">{{ ++$no }}</th>
         <td>{{ $user->name }}</td>
         <td>{{ $user->email }}</td>
         <td>
