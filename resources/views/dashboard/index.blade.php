@@ -32,12 +32,12 @@
       <div class="small-box bg-warning">
         <div class="inner">
           <h3>{{ count($user) }}</h3>
-          <p>Member</p>
+          <p>Users</p>
         </div>
         <div class="icon">
           <i class="ion ion-person-add"></i>
         </div>
-        <a href="/dashboard/admin" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+        <a href="/dashboard/users" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
       </div>
     </div>
 

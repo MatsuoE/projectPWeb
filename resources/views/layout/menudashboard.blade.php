@@ -78,7 +78,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/dashboard/admin" class="nav-link">
+            <a href="/dashboard/users" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Users</p>
             </a>
