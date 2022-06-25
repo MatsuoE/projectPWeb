@@ -57,7 +57,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="{{ asset('storage/' . auth()->user()->image) }}" class="img-circle elevation-2" alt="User Image">
+          @if(auth()->user()->image != NULL)
+          <img src="{{ asset('storage/' . auth()->user()->image) }}" class="img-circle" alt="{{ auth()->user()->name }}">
+          @else
+          <img src="/img/default.jpg" class="img-circle" alt="{{ auth()->user()->name }}">
+          @endif
         </div>
         <div class="info">
           <p style="color: white" class="d-block">{{ auth()->user()->name }}</p>
