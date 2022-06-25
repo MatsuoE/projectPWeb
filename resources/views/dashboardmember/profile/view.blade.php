@@ -59,10 +59,10 @@
         </div>
         <div class="col-md-4 d-flex justify-content-center">
           <div class="card">
-            @if($user->image)
+            @if($user->image != NUll)
             <img src="{{ asset('storage/' . $user->image) }}" alt="$user->name" class="img-fluid" style="height: 200px; width:300px">
             @else
-            <img src=" " class="card-img-top" alt="{{ $user->name }}">
+            <img src="/img/default.jpg" class="card-img-top" alt="{{ $user->name }}">
             @endif
           </div>
         </div>
