@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\addAdminController;
+use App\Http\Controllers\addMemberController;
 use App\Http\Controllers\adminCategoryController;
 use App\Models\product;
 use App\Models\category;
@@ -104,9 +105,16 @@ Route::get('/dashboard/products/edit', function () {
 Route::delete('/dashboard/products/all/{product:slug}', [DashboardPostController::class, 'destroy'])->middleware('isAdmin');
 Route::put('/dashboard/products/{product:slug}/edit', [DashboardPostController::class, 'update'])->middleware('isAdmin');
 
-Route::get('/dashboard/users', function(){
-    return view('/dashboard/data/users',[
-        'title' => 'Users',
+Route::get('/dashboard/admin', function(){
+    return view('/dashboard/data/admin',[
+        'title' => 'Admin',
+        'user' => User::all()
+    ]);
+})->middleware('isAdmin');
+
+Route::get('/dashboard/member', function(){
+    return view('/dashboard/data/member',[
+        'title' => 'Member',
         'user' => User::all()
     ]);
 })->middleware('isAdmin');
@@ -131,6 +139,9 @@ Route::put('/dashboardmember/profile/{User:id}/edit', [profileDashboardControlle
 
 Route::get('/dashboard/data/add', [addAdminController::class, 'index'])->middleware('isAdmin');
 Route::post('/dashboard/data/add', [addAdminController::class, 'store'])->middleware('isAdmin');
+
+Route::get('/dashboard/data/add-member', [addMemberController::class, 'index'])->middleware('isAdmin');
+Route::post('/dashboard/data/add-member', [addMemberController::class, 'store'])->middleware('isAdmin');
 
 Route::get('/dashboard/profile', [profileAdminController::class, 'index'])->middleware('isAdmin');
 Route::put('/dashboard/profile', [profileAdminController::class, 'update'])->middleware('isAdmin');

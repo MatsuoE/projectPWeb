@@ -26,6 +26,7 @@
     @foreach ($user as $user)
     <tbody>
       <tr>
+        @if($user->isAdmin == 1)
         <th scope="row">{{ $user->id }}</th>
         <td>{{ $user->name }}</td>
         <td>{{ $user->email }}</td>
@@ -36,6 +37,7 @@
             {{ 'Admin' }}
             @endif
         </td>
+        @endif
         {{--
         <td class="text-center">
           <a class="btn btn-sm btn-warning" href="/dashboard/category/edit"><i class="fa fa-pen"></i></a>
