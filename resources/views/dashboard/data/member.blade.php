@@ -19,7 +19,8 @@
           <th scope="col">#</th>
           <th scope="col">Name</th>
           <th scope="col">Email</th>
-          <th scope="col">Role</th>
+          <th scope="col">Adress</th>
+          <th scope="col">Number</th>
   <!--        <th scope="col">Option</th>     -->
         </tr>
       </thead>
@@ -31,13 +32,8 @@
           <th scope="row">{{ ++$no }}</th>
           <td>{{ $user->name }}</td>
           <td>{{ $user->email }}</td>
-          <td>
-              @if($user->isAdmin == 0)
-              {{ 'Member' }}
-              @else
-              {{ 'Admin' }}
-              @endif
-          </td>
+          <td>{{ $user->address }}</td>
+          <td>{{ $user->number }}</td>
           @endif
           {{--
           <td class="text-center">

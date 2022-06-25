@@ -6,7 +6,7 @@
             <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-4">
                 <div class="card">
                     <div class="card-header">
-                        <form action="/dashboard/data/add" method="POST">
+                        <form action="/dashboard/data/add-member" method="POST">
                             @csrf
                             <div class="mb-4">
                                 <label for="name" class="form-label">Name</label>
