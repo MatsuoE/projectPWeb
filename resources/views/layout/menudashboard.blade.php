@@ -78,9 +78,15 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/dashboard/users" class="nav-link">
+            <a href="/dashboard/admin" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>Users</p>
+              <p>Admin</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/dashboard/member" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Member</p>
             </a>
           </li>
         </ul>
