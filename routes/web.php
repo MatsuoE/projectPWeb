@@ -104,9 +104,9 @@ Route::get('/dashboard/products/edit', function () {
 Route::delete('/dashboard/products/all/{product:slug}', [DashboardPostController::class, 'destroy'])->middleware('isAdmin');
 Route::put('/dashboard/products/{product:slug}/edit', [DashboardPostController::class, 'update'])->middleware('isAdmin');
 
-Route::get('/dashboard/admin', function(){
-    return view('/dashboard/data/admin',[
-        'title' => 'Admin',
+Route::get('/dashboard/users', function(){
+    return view('/dashboard/data/users',[
+        'title' => 'Users',
         'user' => User::all()
     ]);
 })->middleware('isAdmin');
