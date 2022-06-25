@@ -134,3 +134,9 @@ Route::post('/dashboard/data/add', [addAdminController::class, 'store'])->middle
 
 Route::get('/dashboard/profile', [profileAdminController::class, 'index'])->middleware('isAdmin');
 Route::put('/dashboard/profile', [profileAdminController::class, 'update'])->middleware('isAdmin');
+Route::get('/dashboard/myprofile', function(){
+    return view('dashboard/data/view', [
+        'title' => 'My Profile',
+        'user' => auth()->user()
+    ]);
+})->middleware('isAdmin');
