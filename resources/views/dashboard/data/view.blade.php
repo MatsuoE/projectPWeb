@@ -50,6 +50,11 @@
               </tbody>
             </table>
           </div>
+          <div style="text-align: center">
+            <a href="profile">
+              <button type="button" class="btn btn-primary">Edit</button>
+            </a>
+          </div>
         </div>
         <div class="col-md-4 d-flex justify-content-center">
           <div class="card">

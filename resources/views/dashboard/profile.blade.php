@@ -35,7 +35,7 @@
                                 @endif
                                 <input class="form-control" type="file" id="image" name="image" onchange="previewImage()">
                             </div>
-                            <a href="/dashboardmember/profile/view" class="btn btn-danger">Cancel</a>
+                            <a href="/dashboard/myprofile" class="btn btn-danger">Cancel</a>
                             <button input type="submit" value="Submit" class="btn btn-primary">Edit</button>
                             </div>
                         </form>
