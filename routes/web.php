@@ -1,10 +1,8 @@
 <?php
 
 use App\Http\Controllers\addAdminController;
-use App\Http\Controllers\addMemberController;
 use App\Http\Controllers\adminCategoryController;
 use App\Models\product;
-use App\Models\category;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\loginController;
@@ -78,7 +76,7 @@ Route::get('/dashboardmember', function () {
         'title' => "Dashboard",
         'active' => "Dashboard",
         'product' => product::with('category')->get(),
-        'user' => User::class()
+        'user' => User::all()
     ]);
 })->middleware('member');
 
