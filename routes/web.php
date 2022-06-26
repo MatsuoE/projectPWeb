@@ -69,7 +69,7 @@ Route::get('/dashboard', function () {
         'title' => "Dashboard",
         'active' => "Dashboard",
         'product' => product::with('category')->get(),
-        'user' => User::all()
+        'user' => User::all()->where('isAdmin', 0)
     ]);
 })->middleware('isAdmin');
 
@@ -78,7 +78,7 @@ Route::get('/dashboardmember', function () {
         'title' => "Dashboard",
         'active' => "Dashboard",
         'product' => product::with('category')->get(),
-        'user' => User::all()
+        'user' => User::class()
     ]);
 })->middleware('member');
 
@@ -108,14 +108,14 @@ Route::put('/dashboard/products/{product:slug}/edit', [DashboardPostController::
 Route::get('/dashboard/admin', function(){
     return view('/dashboard/data/admin',[
         'title' => 'Admin',
-        'user' => User::all()
+        'user' => User::all()->where('isAdmin', 1)
     ]);
 })->middleware('isAdmin');
 
 Route::get('/dashboard/member', function(){
     return view('/dashboard/data/member',[
         'title' => 'Member',
-        'user' => User::all()
+        'user' => User::all()->where('isAdmin', 0)
     ]);
 })->middleware('isAdmin');
 
@@ -139,9 +139,6 @@ Route::put('/dashboardmember/profile/{User:id}/edit', [profileDashboardControlle
 
 Route::get('/dashboard/data/add', [addAdminController::class, 'index'])->middleware('isAdmin');
 Route::post('/dashboard/data/add', [addAdminController::class, 'store'])->middleware('isAdmin');
-
-Route::get('/dashboard/data/add-member', [addMemberController::class, 'index'])->middleware('isAdmin');
-Route::post('/dashboard/data/add-member', [addMemberController::class, 'store'])->middleware('isAdmin');
 
 Route::get('/dashboard/profile', [profileAdminController::class, 'index'])->middleware('isAdmin');
 Route::put('/dashboard/profile', [profileAdminController::class, 'update'])->middleware('isAdmin');

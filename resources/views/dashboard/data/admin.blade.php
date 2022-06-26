@@ -19,26 +19,19 @@
         <th scope="col">#</th>
         <th scope="col">Name</th>
         <th scope="col">Email</th>
-        <th scope="col">Role</th>
+        <th scope="col">Address</th>
 <!--        <th scope="col">Option</th>     -->
       </tr>
     </thead>
-    @foreach ($user as $user)
-    <tbody>
-      <tr>
-        @if($user->isAdmin == 1)
-        @php $no = 0; @endphp
-        <th scope="row">{{ ++$no }}</th>
-        <td>{{ $user->name }}</td>
-        <td>{{ $user->email }}</td>
-        <td>
-            @if($user->isAdmin == 0)
-            {{ 'Member' }}
-            @else
-            {{ 'Admin' }}
-            @endif
-        </td>
-        @endif
+    @php $no = 0; @endphp
+      @foreach ($user as $user)
+      <tbody>
+        <tr>
+          <th scope="row">{{ ++$no }}</th>
+          <td>{{ $user->name }}</td>
+          <td>{{ $user->email }}</td>
+          <td>{{ $user->address }}</td>
+          <td>{{ $user->number }}</td>
         {{--
         <td class="text-center">
           <a class="btn btn-sm btn-warning" href="/dashboard/category/edit"><i class="fa fa-pen"></i></a>
