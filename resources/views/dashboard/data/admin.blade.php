@@ -20,6 +20,7 @@
         <th scope="col">Name</th>
         <th scope="col">Email</th>
         <th scope="col">Address</th>
+        <th scope="col">Number</th>
 <!--        <th scope="col">Option</th>     -->
       </tr>
     </thead>
