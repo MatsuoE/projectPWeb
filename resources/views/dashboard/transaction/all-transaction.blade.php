@@ -40,8 +40,8 @@
           <td>{{ "|" }}</td>
           <td>{{ "|" }}</td>
           <td class="text-center">
-          <a href="#" class="btn btn-sm btn-secondary mb-2">Detail</a>
-          <a href="#" class="btn btn-sm btn-primary mb-2">Edit</a>
+          <a href="detail" class="btn btn-sm btn-success mb-2"><i class="fa fa-eye"></i> Detail</a>
+          <a href="#" class="btn btn-sm btn-primary mb-2"><i class="fa fa-pen"></i> Edit</a>
           </td>
           @endif
           {{--

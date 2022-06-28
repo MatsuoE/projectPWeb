@@ -124,6 +124,13 @@ Route::get('/dashboard/all-transaction', function(){
     ]);
 })->middleware('isAdmin');
 
+Route::get('/dashboard/detail', function(){
+    return view('/dashboard/transaction/detail',[
+        'title' => 'Detail Transaction',
+        'user' => User::all()
+    ]);
+})->middleware('isAdmin');
+
 // Route::get('/dashboard/profil', function(){
 //     return view('/dashboard/profil',[
 //         'title' => 'Profil'
