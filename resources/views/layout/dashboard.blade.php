@@ -67,7 +67,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           @endif
         </div>
         <div class="info">
-          <a href="/dashboard/profile" class="d-block">{{ auth()->user()->name }}</a>
+          <a href="/dashboard/myprofile" class="d-block">{{ auth()->user()->name }}</a>
         </div>
       </div>
 
