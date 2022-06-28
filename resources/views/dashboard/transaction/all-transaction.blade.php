@@ -40,7 +40,7 @@
           <td>{{ "|" }}</td>
           <td>{{ "|" }}</td>
           <td class="text-center">
-          <a href="#" class="btn btn-sm btn-info mb-2">Detail</a>
+          <a href="#" class="btn btn-sm btn-secondary mb-2">Detail</a>
           <a href="#" class="btn btn-sm btn-primary mb-2">Edit</a>
           </td>
           @endif
