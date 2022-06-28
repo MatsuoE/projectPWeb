@@ -7,21 +7,22 @@
         @for ($i = 0; $i < 1; $i++)
               @foreach($category->product->sortDesc()->take(3) as $p)
           <div class="col-md-3">
-            <a href="/product/{{ $p->slug }}">
+            <a href="/product/{{ $p->slug }}" style="text-decoration: none; color: inherit">
             <div class="card" style="width: 18rem;">
               <div class="position-absolute bg-dark px-3 py-2 text-white" style="background-color: rgba(0, 0, 0, 0.183)">
                 {{ $p->category->name }}
-            </div>
+              </div>
               @if($p->image)
-                        <img src="{{ asset('storage/' . $p->image) }}" alt="$product->category->name" class="img-fluid" style="height: 230px; width:500px">
-                    @else
-                    <img src="https://source.unsplash.com/500x400?{{ $p->category->name }}" class="card-img-top" alt="{{ $p->category->name }}">
-                    @endif
-            </a>
+              <img src="{{ asset('storage/' . $p->image) }}" alt="$product->category->name" class="img-fluid" style="height: 230px; width:500px">
+              @else
+              <img src="https://source.unsplash.com/500x400?{{ $p->category->name }}" class="card-img-top" alt="{{ $p->category->name }}">
+              @endif
+              
               <div class="card-body">
                 <h5 class="card-title text-center">{{ $p->title }}</h5>
               </div>
             </div>
+            </a>
           </div>
                   @endforeach
         @endfor
