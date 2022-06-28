@@ -13,7 +13,7 @@
 </head>
 <body>
   @include('partial.navbar')
-  <img src="/img/bandung.png" class="rounded mx-auto d-block mt-3" alt="Bandung Elektronika">
+  <img src="/img/bandung.png" class="rounded mx-auto d-block mt-3 mb-3" alt="Bandung Elektronika">
   <div class="container">
       @yield('container')
   </div>
