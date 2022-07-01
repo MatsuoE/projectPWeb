@@ -26,15 +26,16 @@
                     <div class="position-absolute bg-dark px-3 py-2 text-white" style="background-color: rgba(0, 0, 0, 0.183)">
                         {{ $product->category->name }}
                     </div>
-                    <a href="/product/{{ $product->slug }}">
+                    <a href="/product/{{ $product->slug }}" style="text-decoration: none; color: inherit">
                     @if($product->image)
                         <img src="{{ asset('storage/' . $product->image) }}" alt="$product->category->name" class="img-fluid" style="height: 240px; width:500px">
                     @else
                     <img src="https://source.unsplash.com/500x400?{{ $product->category->name }}" class="card-img-top" alt="{{ $product->category->name }}">
-                    @endif</a>
+                    @endif
                     <div class="card-body">
                         <p href="/product/{{ $product->slug }}"class="card-title fs-5">{{ $product->title }}</p>
                         <p class="card-text">{{ $product->excerpt }}</p>
+                    </a>
                     <div class="card-text mt-4">
                         <style>
                             body{

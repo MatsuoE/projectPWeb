@@ -12,7 +12,10 @@
                     @endif</div>
             <div class="col-md-6 mt-5"><h3 class="mt-5">Price: Rp {{ $product->price }},00</h3>
                 {!! $product->body !!}
-                <a href="/product" class='d-block mt-2'>Back to Main</a>
+                <div class="mt-2" style="text-align: center">
+                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                </div>
+                <a href="/product" class='d-block mt-3'>Back to Main</a>
             </div>   
         </div>
     </div>
