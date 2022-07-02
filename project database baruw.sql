@@ -29,14 +29,15 @@ CREATE TABLE `categories` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `categories_name_unique` (`name`),
   UNIQUE KEY `categories_slug_unique` (`slug`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `categories` */
 
 insert  into `categories`(`id`,`name`,`slug`,`created_at`,`updated_at`) values 
-(1,'Dapur','dapur','2022-04-22 14:56:30','2022-04-22 14:56:30'),
-(2,'Ruang Tengah','ruang-tengah','2022-04-22 14:56:30','2022-04-22 14:56:30'),
-(3,'Personal','personal','2022-04-22 14:56:30','2022-04-22 14:56:30');
+(1,'Dapur','dapur','2022-06-22 21:38:17','2022-06-22 21:38:17'),
+(2,'Ruang Tengah','ruang-tengah','2022-06-22 21:38:17','2022-06-22 21:38:17'),
+(3,'Personal','personal','2022-06-22 21:38:17','2022-06-22 21:38:17'),
+(4,'Garasi','garasi','2022-06-25 01:52:21','2022-06-25 01:52:21');
 
 /*Table structure for table `failed_jobs` */
 
@@ -65,7 +66,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `migrations` */
 
@@ -75,7 +76,8 @@ insert  into `migrations`(`id`,`migration`,`batch`) values
 (3,'2019_08_19_000000_create_failed_jobs_table',1),
 (4,'2019_12_14_000001_create_personal_access_tokens_table',1),
 (5,'2022_04_21_132956_create_products_table',1),
-(6,'2022_04_22_040852_create_categories_table',1);
+(6,'2022_04_22_040852_create_categories_table',1),
+(7,'2022_06_22_083845_add_to_users_table',1);
 
 /*Table structure for table `password_resets` */
 
@@ -121,31 +123,31 @@ CREATE TABLE `products` (
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `excerpt` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `stock` double NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `body` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `price` double(8,2) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `products_slug_unique` (`slug`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `products` */
 
-insert  into `products`(`id`,`category_id`,`title`,`slug`,`excerpt`,`body`,`price`,`created_at`,`updated_at`) values 
-(1,3,'Smartphone','sit-et-amet-animi','Aut sed non soluta aliquid assumenda architecto libero vel nisi odio deserunt non ad quod.','Animi fuga aperiam voluptas quasi amet voluptatem aut. Mollitia commodi quia possimus aut molestias. Error harum sunt in facilis nihil doloribus quis iusto. Tempore quidem eum tenetur odit et. Libero ullam doloribus repudiandae hic quo officia. Harum non nulla itaque non ex totam. Temporibus et molestiae veritatis voluptatum.',15019.00,'2022-04-22 14:56:30','2022-04-22 14:56:30'),
-(2,3,'Laptop','et-odio-fuga-similique-libero-quia-omnis','Autem magnam illum aut vel laboriosam iure numquam ut nihil veritatis.','Assumenda excepturi dolor cum est sed repellendus architecto rerum. Ea ullam commodi et placeat numquam ea placeat. Fugit ut voluptas voluptatem quo corporis quia. Atque molestiae exercitationem eligendi. Quod magnam dolore vel quaerat in tempore. Blanditiis earum quia id nemo consequuntur est soluta. Qui est hic accusamus autem totam.',10146.00,'2022-04-22 14:56:30','2022-04-22 14:56:30'),
-(3,2,'TV','enim-occaecati-est-animi-animi-praesentium-a-sit','Aliquid tempore impedit fuga sit explicabo distinctio molestiae tempore voluptas laboriosam voluptas omnis quia reiciendis accusamus dolores.','Praesentium ea ut dolor voluptas voluptatibus. Sunt asperiores est aliquam. Sequi aut a ducimus non aut aliquid ut voluptas. Dolorum minima distinctio eos aut voluptas autem. Voluptas inventore qui est nostrum quisquam. Minima laborum sunt ut officiis natus magni autem.',12747.00,'2022-04-22 14:56:30','2022-04-22 14:56:30'),
-(4,3,'Headset','libero-ut-repellendus-quos-nostrum-eveniet-facere-voluptatum','Corporis qui ut beatae voluptatibus possimus ut minus consectetur impedit maxime amet reiciendis ratione.','Aliquam sed tempora animi qui dolor aliquid occaecati doloribus. Ratione velit tempore sint autem ea eum laudantium. Qui at harum hic sit. Deserunt alias sit autem aliquam. Ducimus sequi consequatur tempore et debitis et. Est non ea officiis nulla. Quo minus harum dolores consequatur. Similique voluptas laboriosam ipsa itaque tempora qui aut. Qui et eum aut est dolor numquam qui. Iusto accusantium libero aspernatur asperiores consequuntur. Qui ut ut qui possimus dolor. Quae amet expedita dolor debitis.',19491.00,'2022-04-22 14:56:30','2022-04-22 14:56:30'),
-(5,3,'Quasi aliquam est eum neque.','quisquam-dignissimos-ut-et-sint','Et nobis hic repudiandae reprehenderit laboriosam id tenetur qui quae aperiam dolor amet eos iusto libero.','Qui est id odit a id. Est architecto ipsum quis vel. Quia sunt numquam consectetur eum eius aut quaerat. Maxime autem blanditiis eum sequi esse illo totam temporibus. Non autem sunt suscipit ad molestiae eaque possimus eius. Rerum voluptatum deleniti rerum. Ut cupiditate ea sit aliquid et eveniet possimus sunt. Ratione iste deleniti dolorem tenetur consequatur. Et omnis est nihil provident. Sint temporibus non et non occaecati vel enim. Expedita perferendis esse autem dicta.',19367.00,'2022-04-22 14:56:30','2022-04-22 14:56:30'),
-(6,3,'Assumenda et possimus harum.','accusamus-aliquid-dicta-sapiente-hic','Illum fuga repellendus rerum alias totam aliquam expedita accusantium quo quia eos temporibus ad deserunt nesciunt molestias neque adipisci.','Aut quia perspiciatis amet quasi eius voluptas sequi suscipit. Et magnam ea amet nobis quaerat. Ullam odit necessitatibus debitis ratione sint aut totam. Dolorem qui recusandae impedit recusandae neque culpa deserunt. Alias quia rerum qui et non expedita qui dolores. Facere omnis illo deserunt mollitia similique. Et omnis ipsum voluptatem voluptatem excepturi. Vitae quam placeat qui enim aliquam at eum. Maxime aut quis numquam.',11087.00,'2022-04-22 14:56:30','2022-04-22 14:56:30'),
-(7,2,'Lampu','facilis-quia-sunt-mollitia-illum-sed-aut-eligendi','Ea ut suscipit sint quae odit tenetur enim voluptatem harum quis nam quos eos quia aspernatur et ut.','Et et cupiditate tempora et iusto eos. Qui et velit culpa tempore facere. Ab iusto ipsum cumque ducimus praesentium voluptate et architecto. Iusto dolorem id et qui sint. Et accusantium aliquam consectetur aliquam voluptas ut. Inventore et repellat sint numquam. Repudiandae repudiandae eos natus molestiae dolores.',12664.00,'2022-04-25 14:50:00','2022-04-22 14:56:30'),
-(8,3,'Voluptatibus veritatis eligendi eaque suscipit.','ipsa-at-ea-ut-dignissimos-aut-rerum','Illum ut ut molestias voluptatem commodi molestiae animi eos sit et quia in et nisi non accusamus.','Voluptatum in cum libero sequi. Id voluptatem est illo voluptatem est et. Nemo ipsum soluta rem maiores voluptas sunt. Consectetur ad id voluptates repudiandae hic voluptates aliquam. Eveniet mollitia recusandae asperiores praesentium facilis similique hic. Sed iusto consequuntur veniam omnis sit. Eos corporis sit ipsam placeat repellendus omnis ex. Sit ab dolore sed et deserunt. Dolorem consequatur ratione laborum praesentium.',19126.00,'2022-04-22 14:56:30','2022-04-22 14:56:30'),
-(9,2,'Kipas','ab-quia-quia-voluptates-hic-laudantium-ut-ea','Magnam eveniet necessitatibus temporibus id minus sit repellat incidunt repellat omnis architecto.','Qui unde temporibus laborum velit quis nobis facilis quia. Sed eum dolores natus voluptatem totam eveniet aliquam natus. Exercitationem quaerat velit est itaque est. Odio architecto commodi ad recusandae dignissimos unde odio. Possimus officiis ab rerum quia rerum nobis culpa. Vel sit voluptatem ut a culpa.',14221.00,'2022-04-22 14:56:30','2022-04-22 14:56:30'),
-(10,3,'Maxime voluptatem id blanditiis aliquam est.','id-nobis-autem-dignissimos-et','Deleniti et quas qui deserunt rerum omnis accusantium maxime magnam quae vel placeat doloremque in quia id sunt.','Quasi distinctio mollitia excepturi earum quo recusandae optio dolorum. Itaque soluta maiores qui aspernatur. Porro sit molestias suscipit. Vero ad repudiandae eligendi est porro iusto consequuntur. Ut minus accusamus minima odit. Voluptatem optio sint quod. Hic saepe rerum soluta excepturi vero officiis earum. Nobis aut eos necessitatibus fugit nam. Expedita sint ut sequi. Labore tempore fugiat et.',16829.00,'2022-04-22 14:56:30','2022-04-22 14:56:30'),
-(11,3,'Possimus nemo molestiae enim.','aut-neque-est-sunt-et-labore-pariatur-suscipit','Fugiat ipsa modi quibusdam rem voluptatem laborum eum soluta id.','Omnis dignissimos et repellat iusto provident in cum quidem. Amet eligendi culpa porro cum assumenda repellat. Pariatur accusantium eaque alias ut at sed nobis. Eligendi at nisi assumenda eaque aut. Repellendus iusto suscipit magnam. Autem explicabo error illum soluta natus quia. Iure unde eum sunt in aliquam ut ut.',15520.00,'2022-04-22 14:56:30','2022-04-22 14:56:30'),
-(12,1,'Dispenser','dolor-soluta-officiis-quia-laudantium-maiores-vel','Eum esse pariatur ut error qui modi sit atque optio dignissimos qui error officia consequatur molestias quidem velit.','Dolorem reiciendis quae maiores recusandae illo voluptatibus voluptas et. Qui odio eos quia corrupti aliquam. Earum corporis ipsam ipsum a a aperiam. Doloribus voluptatem voluptatem autem qui sint maxime. Est totam nihil totam repellendus repellat in. Accusamus cumque exercitationem distinctio quis placeat fuga facere. Adipisci illo aut quia sint quos molestiae illum.',16540.00,'2022-04-22 14:56:30','2022-04-22 14:56:30'),
-(13,1,'Kulkas','hai-hai','hai hai ini excerpt\r\n','hai hai ini body nya',13409.00,'2022-04-25 14:47:03','2022-04-25 14:47:06'),
-(14,1,'Blender','hai-hai2','ini excerpt dapur 2\r\n','ini body dapur 2\r\n',12482.00,'2022-04-25 14:48:12','2022-04-25 14:48:15');
+insert  into `products`(`id`,`category_id`,`title`,`slug`,`excerpt`,`stock`,`image`,`body`,`price`,`created_at`,`updated_at`) values 
+(1,2,'Sed et perferendis rem.','molestias-aliquam-saepe-vitae-quia','Cupiditate deleniti harum porro occaecati. Aspernatur consequatur aut ut nobis neque magni enim. Et...',13,'product-images/9NEElpIUTSBNBHOmSvAoFuVvjVeQUaFdmLgJOdUi.jpg','Cupiditate deleniti harum porro occaecati. Aspernatur consequatur aut ut nobis neque magni enim. Et aut esse eveniet harum doloremque voluptatem nostrum quidem. Dolores expedita sit est.',19245.00,'2022-06-22 21:38:18','2022-06-22 22:22:16'),
+(2,3,'Quo quasi ut cum.','beatae-pariatur-a-quia-suscipit-voluptatem','Voluptatem magnam quaerat fugit excepturi reiciendis non in molestiae adipisci omnis qui cum.',12,NULL,'Cumque ut ut officia. Optio laudantium qui iure qui modi similique. Vel voluptas adipisci consequatur eum. Assumenda sint eos aut et dicta. Eius quaerat enim in. Impedit amet sed voluptatibus sunt quidem. Dolorum fugit neque non omnis ipsam dolor quae. Et id assumenda libero. Reprehenderit illum et voluptatibus adipisci ullam. Excepturi enim cumque quaerat atque odit consequatur. Et id placeat consequatur quam et libero aliquid.',10716.00,'2022-06-22 21:38:18','2022-06-22 21:38:18'),
+(3,2,'Repellendus ducimus dolorum porro quidem.','veniam-et-quod-et-et','Consequatur quia harum illo sapiente suscipit sunt laborum architecto rerum doloribus dolorum et sed numquam dolor quibusdam.',9,NULL,'Molestiae omnis commodi nostrum temporibus. Temporibus odit nobis veritatis veritatis voluptas est voluptatem placeat. Eligendi voluptas voluptas odit deleniti consequatur iure. Veniam harum illum maiores magnam recusandae voluptatem. Sit earum hic debitis repellendus. Ut non aut aliquam et voluptatibus qui incidunt. Nemo numquam necessitatibus et qui autem nulla. Pariatur doloremque animi voluptate facilis id quo. Consequuntur non vero voluptatem quaerat. Dolore et enim quo ut fugiat quia.',16713.00,'2022-06-22 21:38:18','2022-06-22 21:38:18'),
+(4,2,'Consequuntur qui earum dolor.','deleniti-suscipit-dolore-omnis-et','Quis consectetur aut laboriosam magni dolor ab voluptates ut est officia aut nisi qui ut provident aspernatur.',20,NULL,'Suscipit repellat est suscipit aut. Nesciunt deleniti excepturi vel sunt et magnam temporibus. Aut cumque provident eaque. Incidunt rem corrupti placeat reprehenderit sit sit sequi. Distinctio similique rerum ducimus consequatur explicabo quae. Tempore qui rerum aperiam doloremque. Eum temporibus omnis aliquam non. Ut et ut sint dolorem deserunt quo. Quas ab nesciunt doloribus doloremque. Aperiam ut adipisci porro placeat cupiditate sed est.',12964.00,'2022-06-22 21:38:18','2022-06-22 21:38:18'),
+(5,1,'Quia est sit.','eos-aut-repudiandae-eos-dolorem-optio','Quasi animi tenetur sint aut quia eaque aut ut sunt quibusdam maiores molestiae quo aut accusantium quisquam.',5,NULL,'Minima laborum consequuntur perferendis assumenda asperiores pariatur et. Quia est ipsam cumque labore a quia praesentium. Explicabo a aut earum pariatur cumque. Commodi sit voluptatem consequatur consequatur sint eaque consectetur. Non quam consequatur ullam quia.',15993.00,'2022-06-22 21:38:18','2022-06-22 21:38:18'),
+(6,2,'Maxime nihil quis sit vel.','est-et-quae-rerum-eos','Ipsa ut voluptatibus ad quidem eum est id non at esse debitis hic.',14,NULL,'Deleniti distinctio saepe voluptates amet. Ut eum voluptatem exercitationem quo quae. Harum a adipisci deleniti eveniet quo aut. Cupiditate sunt enim quia fugiat eius omnis. Sit voluptates qui facere harum itaque minus. Modi saepe qui error quia fugiat voluptas. Ex sint in quos omnis.',11097.00,'2022-06-22 21:38:18','2022-06-22 21:38:18'),
+(7,2,'Veritatis commodi et quia.','inventore-et-tenetur-rerum-modi-expedita','Voluptatibus vel dolor fugit qui laboriosam et aut recusandae animi sit et unde.',5,NULL,'Repellendus enim eligendi molestiae inventore qui voluptas nam. Voluptates et et corrupti ipsa. Atque maiores rerum non. Commodi autem doloribus qui natus dolorem harum earum. Rem tempore perferendis magni ut similique. Est dolorem soluta aut at in ut. Voluptatem voluptatem repellendus et omnis vel autem autem. Libero nihil eum magni dolorem nihil. Adipisci ut excepturi voluptates illum. Voluptas totam eos reiciendis odio temporibus laudantium molestiae quia. Sit quaerat sint eos optio dolorem dicta natus.',15774.00,'2022-06-22 21:38:18','2022-06-22 21:38:18'),
+(8,2,'Et distinctio esse repudiandae.','voluptatibus-mollitia-et-odit-doloremque-vitae','Iusto non quod minima aut accusamus mollitia cupiditate aut minus quia doloribus dignissimos dolorum dolores.',13,NULL,'Ut ea ut architecto. Molestiae voluptate facilis ab qui ea dignissimos. Voluptatem rem culpa repudiandae ut sunt nihil. Quaerat qui ut labore. Est minima quibusdam et vel aut illo. Exercitationem cumque rerum asperiores illum. Quis harum mollitia vitae omnis voluptas.',14484.00,'2022-06-22 21:38:18','2022-06-22 21:38:18'),
+(9,1,'Inventore ipsum et.','deserunt-repudiandae-totam-voluptas-minus-non-omnis-quia-quaerat','Sint est aliquid aut distinctio sed quia illum est labore rerum voluptates exercitationem et quas.',15,NULL,'Aut eum quas expedita qui rerum similique. Iste tenetur ea et illo dolores voluptatibus et. Libero molestias aut explicabo vero sed. Inventore ea nihil repellendus delectus. Praesentium cum quae iure labore.',11456.00,'2022-06-22 21:38:18','2022-06-22 21:38:18'),
+(10,3,'Illo aut necessitatibus.','enim-qui-magnam-doloremque-itaque-ea-qui','Voluptatem dolore modi aut commodi consequatur at vel ea doloribus pariatur ipsam ratione tenetur et repellat omnis sed.',1,NULL,'Est eum quas rerum odio magni repellat rem. Ut vel consequatur quod. Asperiores maxime recusandae quaerat id illum deleniti dolor. Vel dolores omnis quia necessitatibus quis excepturi dolorem. Et dolores nostrum veniam cumque tenetur est ipsam nemo. In sit velit dolorem temporibus et dolores quae aut. Eos magnam accusantium libero optio quia et nisi. Et dolore similique deserunt autem. Corporis et earum velit quisquam quo voluptatem. Dolorem reprehenderit repellendus vero rerum. Itaque in voluptatibus culpa non harum. Tenetur dolor eos cupiditate ut tenetur.',16885.00,'2022-06-22 21:38:18','2022-06-22 21:38:18'),
+(11,3,'Recusandae deserunt provident iusto.','non-ut-est-cum-perspiciatis','Corporis est repellat sint exercitationem tempore dolor illum qui eligendi libero atque amet ratione earum debitis enim sit aut ab.',10,NULL,'Assumenda quis saepe dolores. Ut quod ut et repellat fugit aut eaque. Sed dolor veniam veniam doloribus. Sed aut sunt deleniti autem magnam sunt blanditiis. Amet omnis repudiandae officia cum ut nisi aliquam dicta. Ea repudiandae excepturi vel. Modi enim est tempora. Aut laboriosam non perferendis assumenda qui praesentium in. Et facere rerum ex dicta dolor itaque dolor veritatis. Laborum ipsum officia sint molestias et cumque consequatur. Harum ut cum velit itaque eligendi quis ipsam minima. Rerum eligendi aliquam est dolore.',15152.00,'2022-06-22 21:38:18','2022-06-22 21:38:18'),
+(12,3,'Et enim aut ea et.','labore-quidem-modi-illum','Quidem repellat necessitatibus voluptatum praesentium hic aut nihil non tempore assumenda.',11,NULL,'Quia assumenda odio ut eaque culpa numquam cupiditate. Est et facilis minus sint. Quaerat aliquid alias iure qui quas. Est qui nulla porro nobis. Qui omnis quasi officia mollitia. Sed nisi sit sunt nisi. Non quibusdam quisquam ducimus. Vitae quis tempora non consequatur. Sed deserunt ea qui aliquid labore est asperiores.',17201.00,'2022-06-22 21:38:18','2022-06-22 21:38:18');
 
 /*Table structure for table `users` */
 
@@ -155,16 +157,26 @@ CREATE TABLE `users` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `isAdmin` int(11) NOT NULL DEFAULT '0',
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `number` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `users` */
+
+insert  into `users`(`id`,`name`,`email`,`isAdmin`,`email_verified_at`,`password`,`remember_token`,`created_at`,`updated_at`,`address`,`number`,`image`) values 
+(1,'ikhsan','ikhsan@mail.com',1,NULL,'$2y$10$L.AzADNwzjdf82y9hNmXHOl7BDnX/BRl0A8brveBvA8hRgdZ/hf/y',NULL,'2022-06-22 21:38:17','2022-06-23 16:25:50','Jalan Keputih No 1',NULL,'profile-images/9MzLKF9HClujJHrG60eERTqOeuSFAoyff2Ea33Sy.jpg'),
+(2,'Auliyaaaa','aul@mail.com',0,NULL,'$2y$10$.T69b7vMcVzWSKa/W3PTEe5RlA9jAwahDzHsFe7gVZ9BrRNzaT41.',NULL,'2022-06-22 21:38:43','2022-06-24 00:35:08',NULL,'08212831741','profile-images/sGjlrlDgAYf9BfopeSNnsqTAPoSF76ztasl7fa9l.jpg'),
+(4,'Auliyaz','auliya@mail.com',1,NULL,'$2y$10$2uLHQ.wtA8Vo8om1895.oOtsR8If6fAdFkK6gePPRUFWcBMZGnJf.',NULL,'2022-06-23 14:40:09','2022-06-23 14:40:09','Jalan Surabaya No 1','081234567890',NULL),
+(5,'ikh','ikh@mail.com',0,NULL,'$2y$10$hLqkywPzlAFdudYetnpqgO8hb31tWz4y8CgY44hcXm09ucGr3DJ0y',NULL,'2022-06-25 01:13:04','2022-06-25 01:13:04',NULL,NULL,NULL);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
