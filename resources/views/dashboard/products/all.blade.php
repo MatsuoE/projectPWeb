@@ -30,6 +30,7 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">Name</th>
+        <th scope="col">Image</th>
         <th scope="col">Category</th>
         <th scope="col">Price</th>
         <th scope="col">Option</th>
@@ -41,6 +42,7 @@
       <tr>
         <th scope="row">{{ ++$no }}</th>
         <td>{{ $product->title }}</td>
+        <td>{{ $product->image }}</td>
         <td>{{ $product->category->name }}</td>
         <td>{{ $product->price }}</td>
         <td class="text-center">

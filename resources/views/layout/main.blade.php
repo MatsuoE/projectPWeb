@@ -45,10 +45,10 @@
             <h5 class="text-uppercase">Website</h5>
             <ul class="list-unstyled mb-0">
               <li>
-                <a href="product" class="text-white">Products</a>
+                <a href="/product" class="text-white">Products</a>
               </li>
               <li>
-                <a href="aboutus" class="text-white">About Us</a>
+                <a href="/aboutus" class="text-white">About Us</a>
               </li>
             </ul>
           </div>
