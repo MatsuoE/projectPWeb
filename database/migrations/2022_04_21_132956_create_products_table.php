@@ -22,7 +22,7 @@ class CreateProductsTable extends Migration
             $table->double('stock');
             $table->string('image')->nullable();
             $table->text('body');
-            $table->float('price');
+            $table->double('price');
             $table->timestamps();
         });
     }
