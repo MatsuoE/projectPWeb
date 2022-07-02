@@ -30,6 +30,6 @@ class profileAdminController extends Controller
             $validatedData['image'] = $request->file('image')->store('profile-images');
         }
         User::where('id', $user->id)->update($validatedData);
-        return redirect()->to('/dashboard')->with('edited', 'Profile has been edited');
+        return redirect()->to('/dashboard/myprofile')->with('edited', 'Profile has been edited');
     }
 }

@@ -59,7 +59,7 @@
         <div class="col-md-4 d-flex justify-content-center">
           <div class="card">
             @if($user->image != NULL)
-            <img src="{{ asset('storage/' . $user->image) }}" alt="$user->name" class="img-fluid" style="height: 300px; width:300px">
+            <img src="{{ asset('storage/' . $user->image) }}" alt="{{ $user->name }}" class="img-fluid" style="height: 300px; width:300px">
             @else
             <img src="/img/default.jpg" class="card-img-top" style="height: 300px; width:300px"alt="{{ $user->name }}">
             @endif
