@@ -42,7 +42,13 @@
       <tr>
         <th scope="row">{{ ++$no }}</th>
         <td>{{ $product->title }}</td>
-        <td>{{ $product->image }}</td>
+        <td>
+          @if($product->image)
+          <img src="{{ asset('storage/' . $product->image) }}" alt="$product->category->name" class="img-fluid" style="height: 120px; width:250px">
+          @else
+          <img src="https://source.unsplash.com/500x400?{{ $product->category->name }}" class="card-img-top" alt="{{ $product->category->name }}" style="height: 120px; width:250px">
+          @endif
+        </td>
         <td>{{ $product->category->name }}</td>
         <td>{{ $product->price }}</td>
         <td class="text-center">
