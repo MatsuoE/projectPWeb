@@ -7,7 +7,7 @@
             <h2>{{ $product->title }}</h2>
             <p>Category: <a href="/product?category={{ $product->category->slug }}" class='text-decoration-none'>{{ $product->category->name }}</a></p>
             @if($product->image)
-            <img src="{{ asset('storage/' . $product->image) }}" alt="$product->category->name" class="img-fluid">
+            <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->category->name }}" class="img-fluid">
             @else
             <img src="https://source.unsplash.com/500x400?{{ $product->category->name }}" class="card-img-top" alt="{{ $product->category->name }}">
             @endif
