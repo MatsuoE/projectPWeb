@@ -14,15 +14,17 @@
                 {!! $product->body !!}
                 <div class="mt-2" style="text-align: center">
                     @auth
+                    @if ( auth()->user()->isAdmin === 0 )
                     <form action="{{ route('cartdetail.store') }}" method="POST">
                         @csrf
                         <input type="hidden" name="produk_id" value={{$product->id}}>
-                        @if ( auth()->user()->isAdmin === 0 )
                         <button class="btn btn-block btn-primary" type="submit">
                         <i class="fa fa-shopping-cart"></i> Tambahkan Ke Keranjang
                         </button>
-                        @endif
-                      </form>
+                    </form>
+                    @endif
+                    @else
+                    <a href="/login" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Tambahkan Ke Keranjang</a>
                     {{-- <a href="#" class="btn btn-primary">Add to Cart</a> --}}
                     @endauth
                 </div>
