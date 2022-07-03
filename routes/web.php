@@ -15,6 +15,7 @@ use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\profileAdminController;
 use App\Http\Controllers\profileDashboardController;
 use App\Models\User;
+use App\Http\Controllers\CartDetailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -156,3 +157,14 @@ Route::get('/dashboard/myprofile', function(){
         'user' => auth()->user()
     ]);
 })->middleware('isAdmin');
+
+Route::group(['middleware' => 'member'], function() {
+    // cart
+    Route::resource('Transaction', 'transactionController');
+    Route::patch('kosongkan/{id}', 'CartController@kosongkan');
+    // cart detail
+    // Route::resource('cartdetail', 'CartDetailController');
+  });
+
+// cart detail
+Route::resource('cartdetail', CartDetailController::class)->middleware('member');

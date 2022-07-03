@@ -189,8 +189,8 @@ class ComposerStaticInit78fd2d581589516a07f14ac2938ff519
         'phpDocumentor\\Reflection\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
-            1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
-            2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+            1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+            2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
         ),
         'Whoops\\' => 
         array (
@@ -334,8 +334,8 @@ class ComposerStaticInit78fd2d581589516a07f14ac2938ff519
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -536,7 +536,9 @@ class ComposerStaticInit78fd2d581589516a07f14ac2938ff519
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\DashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/DashboardController.php',
         'App\\Http\\Controllers\\DashboardPostController' => __DIR__ . '/../..' . '/app/Http/Controllers/DashboardPostController.php',
+        'App\\Http\\Controllers\\aboutusController' => __DIR__ . '/../..' . '/app/Http/Controllers/aboutusController.php',
         'App\\Http\\Controllers\\addAdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/addAdminController.php',
+        'App\\Http\\Controllers\\addMemberController' => __DIR__ . '/../..' . '/app/Http/Controllers/addMemberController.php',
         'App\\Http\\Controllers\\adminCategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/adminCategoryController.php',
         'App\\Http\\Controllers\\allCategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/allCategoryController.php',
         'App\\Http\\Controllers\\allProductController' => __DIR__ . '/../..' . '/app/Http/Controllers/allProductController.php',
@@ -546,6 +548,7 @@ class ComposerStaticInit78fd2d581589516a07f14ac2938ff519
         'App\\Http\\Controllers\\profileAdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/profileAdminController.php',
         'App\\Http\\Controllers\\profileDashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/profileDashboardController.php',
         'App\\Http\\Controllers\\registController' => __DIR__ . '/../..' . '/app/Http/Controllers/registController.php',
+        'App\\Http\\Controllers\\transactionController' => __DIR__ . '/../..' . '/app/Http/Controllers/transactionController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
@@ -557,6 +560,8 @@ class ComposerStaticInit78fd2d581589516a07f14ac2938ff519
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Middleware\\isAdmin' => __DIR__ . '/../..' . '/app/Http/Middleware/isAdmin.php',
         'App\\Http\\Middleware\\member' => __DIR__ . '/../..' . '/app/Http/Middleware/member.php',
+        'App\\Models\\CartDetail' => __DIR__ . '/../..' . '/app/Models/CartDetail.php',
+        'App\\Models\\Transaction' => __DIR__ . '/../..' . '/app/Models/Transaction.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\category' => __DIR__ . '/../..' . '/app/Models/category.php',
         'App\\Models\\product' => __DIR__ . '/../..' . '/app/Models/product.php',
