@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\aboutusController;
 use App\Http\Controllers\addAdminController;
 use App\Http\Controllers\adminCategoryController;
 use App\Models\product;
@@ -34,12 +35,7 @@ Route::get('/product', [productController::class, 'index']);
 
 Route::get('/product/{singleproduct:slug}', [productController::class, 'show']);
 
-Route::get('/aboutus', function () {
-    return view('aboutus',[
-        'title' => "About Us",
-        'active' => "About Us"
-    ]);
-});
+Route::get('/aboutus', [aboutusController::class, 'index']);
 
 Route::get('/login', [loginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [loginController::class, 'authenticate']);
