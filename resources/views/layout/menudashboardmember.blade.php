@@ -33,11 +33,28 @@
           </li>
         </ul>
       </li>
-          <li class="nav-item">
-            <a href="/dashboardmember/transaction" class="nav-link">
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-shopping-cart"></i>
-              <p>Transaction</p>
+              <p>
+                Transaction
+                <i class="right fas fa-angle-left"></i>
+              </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>My Cart</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>All Transaction</p>
+                </a>
+              </li>
+            </ul>
           </li>
       <li class="nav-item">
         <form action="/logout" method="post">

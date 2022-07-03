@@ -13,14 +13,18 @@
             <div class="col-md-6 mt-5"><h3 class="mt-5">Price: Rp {{ $product->price }},00</h3>
                 {!! $product->body !!}
                 <div class="mt-2" style="text-align: center">
+                    @auth
                     <form action="{{ route('cartdetail.store') }}" method="POST">
                         @csrf
                         <input type="hidden" name="produk_id" value={{$product->id}}>
+                        @if ( auth()->user()->isAdmin === 0 )
                         <button class="btn btn-block btn-primary" type="submit">
                         <i class="fa fa-shopping-cart"></i> Tambahkan Ke Keranjang
                         </button>
+                        @endif
                       </form>
                     {{-- <a href="#" class="btn btn-primary">Add to Cart</a> --}}
+                    @endauth
                 </div>
                 <a href="/product" class='d-block mt-3'>Back to Main</a>
             </div>   
