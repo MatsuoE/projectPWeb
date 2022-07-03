@@ -10,7 +10,7 @@
           <th scope="col">Email</th>
           <th scope="col">Adress</th>
           <th scope="col">Number</th>
-  <!--        <th scope="col">Option</th>     -->
+          {{-- <th scope="col">Option</th> --}}
         </tr>
       </thead>
       @php $no = 0; @endphp
@@ -22,10 +22,9 @@
           <td>{{ $user->email }}</td>
           <td>{{ $user->address }}</td>
           <td>{{ $user->number }}</td>
-          {{--
-          <td class="text-center">
-            <a class="btn btn-sm btn-warning" href="/dashboard/category/edit"><i class="fa fa-pen"></i></a>
-          --}}
+          {{-- <td class="text-center">
+            <a class="btn btn-sm btn-success" href="#"><i class="fa fa-eye"></i> Detail</a>
+          </td> --}}
           </tr>
         @endforeach
       </tbody>

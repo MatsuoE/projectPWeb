@@ -131,6 +131,13 @@ Route::get('/dashboard/detail', function(){
     ]);
 })->middleware('isAdmin');
 
+Route::get('/dashboard/detail/edit', function(){
+    return(view('/dashboard/transaction/edit-transaction',[
+        'title' => 'Edit Transaction',
+        'user' => User::all()
+    ]));
+})->middleware('isAdmin');
+
 // Route::get('/dashboard/profil', function(){
 //     return view('/dashboard/profil',[
 //         'title' => 'Profil'

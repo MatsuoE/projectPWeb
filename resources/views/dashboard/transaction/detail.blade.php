@@ -31,27 +31,11 @@
                     <td class="text-right">30.000</td>
                   </tr>
                   <tr>
-                    <td>2</td>
-                    <td>KATE-2</td>
-                    <td>Baju Anak</td>
-                    <td class="text-right">25.000</td>
-                    <td class="text-right">2</td>
-                    <td class="text-right">50.000</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>KATE-3</td>
-                    <td>Baju Anak</td>
-                    <td class="text-right">35.000</td>
-                    <td class="text-right">2</td>
-                    <td class="text-right">70.000</td>
-                  </tr>
-                  <tr>
                     <td colspan="5">
                       <b>Total</b>
                     </td>
                     <td class="text-right">
-                      <b>150.000</b>
+                      <b>30.000</b>
                     </td>
                   </tr>
                 </tbody>
@@ -74,11 +58,11 @@
                 <tbody>
                   <tr>
                     <td>Total</td>
-                    <td>127.000</td>
+                    <td>30.000</td>
                   </tr>
                   <tr>
                     <td>Subtotal</td>
-                    <td>150.000</td>
+                    <td>50.000</td>
                   </tr>
                   <tr>
                     <td>Diskon</td>
@@ -86,7 +70,7 @@
                   </tr>
                   <tr>
                     <td>Ongkir</td>
-                    <td>27.000</td>
+                    <td>20.000</td>
                   </tr>
                   <tr>
                     <td>Ekspedisi</td>
