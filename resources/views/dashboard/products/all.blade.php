@@ -50,10 +50,10 @@
           @endif
         </td>
         <td>{{ $product->category->name }}</td>
-        <td>{{ $product->price }}</td>
+        <td>{{ "Rp $product->price, 00" }}</td>
         <td class="text-center">
-          <a class="btn btn-sm btn-success" href="/dashboard/products/{{ $product->slug }}"><i class="fa fa-eye"></i></a>
-          <a class="btn btn-sm btn-warning" href="/dashboard/products/{{ $product->slug }}/edit"><i class="fa fa-pen"></i></a>
+          <a class="btn btn-sm btn-success mr-1" href="/dashboard/products/{{ $product->slug }}"><i class="fa fa-eye"></i></a>
+          <a class="btn btn-sm btn-warning mr-1" href="/dashboard/products/{{ $product->slug }}/edit"><i class="fa fa-pen"></i></a>
           <form action="/dashboard/products/all/{{ $product->slug }}" method="POST" class="d-inline">
             @csrf
             @method('delete')

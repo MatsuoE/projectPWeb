@@ -83,7 +83,7 @@
         <th scope="row">{{ ++$no }}</th>
         <td>{{ $product->title }}</td>
         <td>{{ $product->category->name }}</td>
-        <td>{{ $product->price }}</td>
+        <td>{{ "Rp $product->price, 00" }}</td>
       </tr>
       @endforeach
     </tbody>
