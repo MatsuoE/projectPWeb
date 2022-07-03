@@ -3,8 +3,6 @@
 use App\Http\Controllers\aboutusController;
 use App\Http\Controllers\addAdminController;
 use App\Http\Controllers\adminCategoryController;
-use App\Models\product;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\registController;
@@ -15,7 +13,8 @@ use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\profileAdminController;
 use App\Http\Controllers\profileDashboardController;
 use App\Models\User;
-use App\Http\Controllers\CartDetailController;
+use App\Models\product;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -157,14 +156,3 @@ Route::get('/dashboard/myprofile', function(){
         'user' => auth()->user()
     ]);
 })->middleware('isAdmin');
-
-Route::group(['middleware' => 'member'], function() {
-    // cart
-    Route::resource('Transaction', 'transactionController');
-    Route::patch('kosongkan/{id}', 'CartController@kosongkan');
-    // cart detail
-    // Route::resource('cartdetail', 'CartDetailController');
-  });
-
-// cart detail
-Route::resource('cartdetail', CartDetailController::class)->middleware('member');
