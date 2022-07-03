@@ -12,6 +12,8 @@ use App\Http\Controllers\allCategoryController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\profileAdminController;
 use App\Http\Controllers\profileDashboardController;
+use App\Http\Controllers\cartController;
+use App\Http\Controllers\CartDetailController;
 use App\Models\User;
 use App\Models\product;
 use Illuminate\Support\Facades\Route;
@@ -156,3 +158,27 @@ Route::get('/dashboard/myprofile', function(){
         'user' => auth()->user()
     ]);
 })->middleware('isAdmin');
+
+// Route::get('/dashboardmember/cart', function(){
+//     return view('dashboardmember/transaction/cart', [
+//         'title' => 'Cart',
+//         'user' => auth()->user()
+//     ]);
+// })->middleware('member');
+
+//Route::resource('/dashboardmember/cart', CartController::class)->middleware('member');
+
+// Route::resource('/dashboardmember/cartdetail', CartDetailController::class)->middleware('member');
+// Route::resource('/dashboardmember/cart', cartController::class)->middleware('member');
+
+Route::group(['prefix'=>'dashboardmember', 'middleware' => 'auth'], function() {
+    // cart
+    Route::resource('cart', 'CartController');
+    Route::patch('kosongkan/{id}', 'CartController@kosongkan');
+    // cart detail
+    Route::resource('cartdetail', 'CartDetailController');
+    // alamat pengiriman
+    Route::resource('alamatpengiriman', 'AlamatPengirimanController');
+    // checkout
+    Route::get('checkout', 'CartController@checkout');
+  });
