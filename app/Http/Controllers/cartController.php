@@ -132,5 +132,7 @@ class cartController extends Controller
         } else {
             return abort('404');
         }
+
+        
     }
 }
