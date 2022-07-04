@@ -10,7 +10,7 @@ class CartDetail extends Model
     use HasFactory;
     protected $table = 'cart_detail';
     protected $fillable = [
-        'produk_id',
+        'product_id',
         'cart_id',
         'qty',
         'harga',
@@ -22,7 +22,7 @@ class CartDetail extends Model
     }
 
     public function produk() {
-        return $this->belongsTo('App\Models\Product', 'product_id');
+        return $this->belongsTo('App\Models\product', 'product_id');
     }
 
     // function untuk update qty, sama subtotal

@@ -31,6 +31,11 @@
             </li>
             @else
             <li>
+              <a class="dropdown-item" href="/dashboardmember/cart">
+                <i class="bi bi-cart3"></i> My Cart
+              </a>
+            </li>
+            <li>
               <a class="dropdown-item" href="/dashboardmember">
                 <i class="bi bi-layout-text-window-reverse"></i> Dashboard
               </a>
@@ -52,7 +57,6 @@
           </li>
           @endauth
         </ul>
-  
       </div>
     </div>
   </nav>

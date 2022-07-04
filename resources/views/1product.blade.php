@@ -3,6 +3,11 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
+            @if ($message = Session::get('success'))
+          <div class="alert alert-success">
+              <p>{{ $message }}</p>
+          </div>
+      @endif
             <h2>{{ $product->title }}</h2>
             <p>Category: <a href="/product?category={{ $product->category->slug }}" class='text-decoration-none'>{{ $product->category->name }}</a></p>
             @if($product->image)
@@ -14,11 +19,11 @@
                 {!! $product->body !!}
                 <div class="mt-2" style="text-align: center">
                     @auth
-                    @if ( auth()->user()->isAdmin === 0 )
-                    <form action="{{ route('cartdetail.store') }}" method="POST">
+                    @if ( auth()->user()->isAdmin == 0 )
+                    <form action="{{ route('CartDetail') }}" method="POST">
                         @csrf
                         <input type="hidden" name="produk_id" value={{$product->id}}>
-                        <button class="btn btn-block btn-primary" type="submit">
+                        <button class="btn btn-block btn-primary" input type="submit" value="Submit">
                         <i class="fa fa-shopping-cart"></i> Tambahkan Ke Keranjang
                         </button>
                     </form>

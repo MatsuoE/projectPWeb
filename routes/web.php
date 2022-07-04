@@ -3,6 +3,7 @@
 use App\Http\Controllers\aboutusController;
 use App\Http\Controllers\addAdminController;
 use App\Http\Controllers\adminCategoryController;
+use App\Http\Controllers\AlamatPengirimanController;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\registController;
@@ -159,26 +160,34 @@ Route::get('/dashboard/myprofile', function(){
     ]);
 })->middleware('isAdmin');
 
-// Route::get('/dashboardmember/cart', function(){
-//     return view('dashboardmember/transaction/cart', [
-//         'title' => 'Cart',
-//         'user' => auth()->user()
-//     ]);
-// })->middleware('member');
-
-//Route::resource('/dashboardmember/cart', CartController::class)->middleware('member');
-
+Route::get('/dashboardmember/cart', function(){
+    return view('/dashboardmember/transaction/cart', [
+        'title' => 'Cart',
+        'user' => auth()->user()
+    ]);
+})->middleware('member');
+// Route::resource('/dashboardmember/cart', cartController::class)->middleware('member');
 // Route::resource('/dashboardmember/cartdetail', CartDetailController::class)->middleware('member');
+Route::resource('/dashboardmember/cart', cartController::class)->middleware('member');
+Route::post('/dashboardmember/cartdetail', [CartDetailController::class, 'store'])->name('CartDetail')->middleware('member');
+Route::patch('/dashboardmember/cartdetail', [CartDetailController::class, 'update'])->name('CartDetail.update')->middleware('member');
+Route::patch('/dashboardmember/cartdetail/{id}', [CartDetailController::class, 'update'])->name('CartDetail.update')->middleware('member');
+Route::delete('/dashboardmember/cartdetail', [CartDetailController::class, 'destroy'])->name('CartDetail.destroy')->middleware('member');
+Route::delete('/dashboardmember/cartdetail{id}', [CartDetailController::class, 'destroy'])->name('CartDetail.destroy')->middleware('member');
+Route::patch('/dashboardmember/cart{id}', [cartController::class, 'kosongkan'])->name('kosongkan')->middleware('member');
+
 // Route::resource('/dashboardmember/cart', cartController::class)->middleware('member');
 
-Route::group(['prefix'=>'dashboardmember', 'middleware' => 'auth'], function() {
-    // cart
-    Route::resource('cart', 'CartController');
-    Route::patch('kosongkan/{id}', 'CartController@kosongkan');
-    // cart detail
-    Route::resource('/cartdetail', 'CartDetailController');
-    // alamat pengiriman
-    Route::resource('alamatpengiriman', 'AlamatPengirimanController');
-    // checkout
-    Route::get('checkout', 'CartController@checkout');
-  });
+// Route::group(['prefix'=>'dashboardmember', 'middleware' => 'member'], function() {
+//     // cart
+//     Route::resource('cart', cartController::class);
+//     Route::post('cart', [cartController::class, 'index']);
+//     Route::patch('kosongkan/{id}', [cartController::class, 'kosongkan']);
+//     // cart detail
+//     Route::post('/cartdetail', [CartDetailController::class, 'store']);
+//     Route::resource('/cartdetail', CartDetailController::class);
+//     // alamat pengiriman
+//     Route::resource('alamatpengiriman', AlamatPengirimanController::class);
+//     // checkout
+//     Route::get('checkout', [cartController::class, 'checkout']);
+//   });

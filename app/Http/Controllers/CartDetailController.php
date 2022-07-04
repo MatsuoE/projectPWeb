@@ -37,11 +37,12 @@ class CartDetailController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request)->all();
         $this->validate($request, [
-            'product_id' => 'required',
+            'produk_id' => 'required',
         ]);
         $itemuser = $request->user();
-        $itemproduk = product::findOrFail($request->product_id);
+        $itemproduk = product::findOrFail($request->produk_id);
         // cek dulu apakah sudah ada shopping cart untuk user yang sedang login
         $cart = Cart::where('user_id', $itemuser->id)
                     ->where('status_cart', 'cart')
@@ -64,7 +65,7 @@ class CartDetailController extends Controller
                                 ->where('product_id', $itemproduk->id)
                                 ->first();
         $qty = 1;// diisi 1, karena kita set ordernya 1
-        $harga = $itemproduk->harga;//ambil harga produk
+        $harga = $itemproduk->price;//ambil harga produk
         $subtotal = ($qty * $harga);
         if ($cekdetail) {
             // update detail di table cart_detail
@@ -82,7 +83,7 @@ class CartDetailController extends Controller
             // update subtotal dan total di table cart
             $itemdetail->cart->updatetotal($itemdetail->cart, $subtotal);
         }
-        return redirect('dashboardmember/transaction/cart')->with('success', 'Produk berhasil ditambahkan ke cart');
+        return redirect()->route('cart.index')->with('success', 'Produk berhasil ditambahkan ke cart');
     }
 
     /**

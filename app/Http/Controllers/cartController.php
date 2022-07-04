@@ -14,7 +14,7 @@ class cartController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    {
+    {   
         $itemuser = $request->user();//ambil data user
         $itemcart = Cart::where('user_id', $itemuser->id)
                         ->where('status_cart', 'cart')
@@ -25,7 +25,7 @@ class cartController extends Controller
             return view('dashboardmember/transaction/cart', $data)->with('no', 1);            
         }
         else {
-            return abort('404');
+            return abort('403');
             // return view('dashboardmember/transaction/cartnull', [
             //     'title' => 'Cart',
             //     'user' => auth()->user()
@@ -51,7 +51,18 @@ class cartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $itemuser = $request->user();//ambil data user
+        $itemcart = Cart::where('user_id', $itemuser->id)
+                        ->where('status_cart', 'cart')
+                        ->first();
+        if ($itemcart) {
+            $data = array('title' => 'Cart',
+                        'itemcart' => $itemcart);
+            return view('dashboardmember/transaction/cart', $data)->with('no', 1);            
+        }
+        else {
+            return abort('404');
+        }
     }
 
     /**

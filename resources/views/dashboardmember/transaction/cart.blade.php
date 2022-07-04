@@ -41,16 +41,14 @@
                 {{ $no++ }}
                 </td>
                 <td>
-                {{ $detail->produk->nama_produk }}
-                <br />
-                {{ $detail->produk->kode_produk }}
+                {{ $detail->produk->title }}
                 </td>
                 <td>
                 {{ number_format($detail->harga, 2) }}
                 </td>
                 <td>
                   <div class="btn-group" role="group">
-                    <form action="{{ route('cartdetail.update',$detail->id) }}" method="post">
+                    <form action="{{ route('CartDetail.update', ['id' => $detail->id]) }}" method="post">
                     @method('patch')
                     @csrf()
                       <input type="hidden" name="param" value="kurang">
@@ -61,7 +59,7 @@
                     <button class="btn btn-outline-primary btn-sm" disabled="true">
                     {{ number_format($detail->qty, 2) }}
                     </button>
-                    <form action="{{ route('cartdetail.update',$detail->id) }}" method="post">
+                    <form action="{{ route('CartDetail.update', ['id' => $detail->id]) }}" method="post">
                     @method('patch')
                     @csrf()
                       <input type="hidden" name="param" value="tambah">
@@ -75,7 +73,7 @@
                 {{ number_format($detail->subtotal, 2) }}
                 </td>
                 <td>
-                <form action="{{ route('cartdetail.destroy', $detail->id) }}" method="post" style="display:inline;">
+                <form action="{{ route('CartDetail.destroy', ['id' => $detail->id]) }}" method="post" style="display:inline;">
                   @csrf
                   {{ method_field('delete') }}
                   <button type="submit" class="btn btn-sm btn-danger mb-2">
@@ -125,7 +123,7 @@
               </a>
             </div>
             <div class="col">
-              <form action="#" method="post">
+              <form action="{{ route('kosongkan', ['id' => $itemcart->id]) }}" method="post">
                 @method('patch')
                 @csrf()
                 <button type="submit" class="btn btn-danger btn-block">Kosongkan</button>
