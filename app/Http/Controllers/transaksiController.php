@@ -53,19 +53,33 @@ class transaksiController extends Controller
         $itemcart = Cart::where('status_cart', 'cart')
                         ->where('user_id', $itemuser->id)
                         ->first();
+        //$alamatkirim = order::where('alamat', $itemuser->address);
+        //$numberkirim = order::where('alamat', $itemuser->number);
         if ($itemcart) {
-                $inputanorder['cart_id'] = $itemcart->id;
-                $inputanorder['nama_penerima'] = $itemuser->name;
+            $inputanorder['cart_id'] = $itemcart->id;
+            $inputanorder['nama_penerima'] = $itemuser->name;
+
+            if ($itemuser->address == null){
+                return back()->with('error', 'Alamat pengiriman belum diisi');
+            }
+            else{
                 $inputanorder['alamat'] = $itemuser->address;
+            }
+
+            if ($itemuser->number == null){
+                return back()->with('error', 'Nomor Penerima belum diisi');
+            }
+            else{
                 $inputanorder['number'] = $itemuser->number;
+            }
                 order::create($inputanorder);//simpan order
                 // update status cart
                 $itemcart->update(['status_cart' => 'checkout']);
                 return redirect('dashboardmember')->with('success', 'Order berhasil disimpan');
-            }
-        else {
-            return abort('404');//kalo ternyata ga ada shopping cart, maka akan menampilkan error halaman tidak ditemukan
         }
+        else {
+                return abort('404');//kalo ternyata ga ada shopping cart, maka akan menampilkan error halaman tidak ditemukan
+            }
     }
 
     /**
