@@ -49,12 +49,6 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
-              <p>New Transaction</p>
-            </a>
-          </li>
-          <li class="nav-item">
             <a href="/dashboard/all-transaction" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>All Transaction</p>

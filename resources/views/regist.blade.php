@@ -21,6 +21,24 @@
             <label for="name">Name</label>
           </div>
           <div class="form-floating mb-3">
+            <input type="text" name="address" class="form-control @error('address') is-invalid @enderror" id="address" placeholder="Address" value="{{ old('address') }}">
+            @error('address')
+              <div class="invalid-feedback">
+                {{ $message }}
+              </div>
+            @enderror
+            <label for="address">Alamat</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" name="number" class="form-control @error('number') is-invalid @enderror" id="number" placeholder="Number" value="{{ old('number') }}">
+            @error('number')
+              <div class="invalid-feedback">
+                {{ $message }}
+              </div>
+            @enderror
+            <label for="number">No HP</label>
+          </div>
+          <div class="form-floating mb-3">
             <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" value="{{ old('email') }}">
             @error('email')
               <div class="invalid-feedback">

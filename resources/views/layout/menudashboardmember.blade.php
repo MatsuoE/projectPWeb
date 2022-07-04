@@ -49,7 +49,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/dashboardmember/all-transaction" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>All Transaction</p>
                 </a>

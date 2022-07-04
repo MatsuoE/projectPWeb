@@ -123,13 +123,12 @@ class cartController extends Controller
                         ->where('status_cart', 'cart')
                         ->first();
         $itemalamatpengiriman = AlamatPengiriman::where('user_id', $itemuser->id)
-                                                ->where('status', 'utama')
                                                 ->first();
         if ($itemcart) {
             $data = array('title' => 'Checkout',
                         'itemcart' => $itemcart,
                         'itemalamatpengiriman' => $itemalamatpengiriman);
-            return view('cart.checkout', $data)->with('no', 1);
+            return view('dashboardmember.transaction.checkout', $data)->with('no', 1);
         } else {
             return abort('404');
         }

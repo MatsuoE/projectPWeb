@@ -18,6 +18,8 @@ class registController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|max:255',
             'email' => 'required|email:dns|unique:users',
+            'number' => 'max:14',
+            'address' => 'max:255',
             'password' => 'required|min:8|max:20'
         ]);
 

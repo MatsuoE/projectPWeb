@@ -1,4 +1,4 @@
-@extends('layout.dashboard')
+@extends('layout.dashboardmember')
 @section('content')
 
 <div class="container-fluid">
@@ -71,7 +71,7 @@
           </div>
         </div>
         <div class="card-footer">
-          <a href="/dashboard/all-transaction" class="btn btn-sm btn-danger">Tutup</a>
+          <a href="/dashboardmember/all-transaction" class="btn btn-sm btn-danger">Tutup</a>
         </div>
       </div>
       <div class="card">

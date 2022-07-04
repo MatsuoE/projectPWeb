@@ -118,7 +118,7 @@
         <div class="card-footer">
           <div class="row">
             <div class="col">
-              <a href="#" class="btn btn-primary btn-block">
+              <a href="{{ route('checkout') }}" class="btn btn-primary btn-block">
                 Checkout
               </a>
             </div>

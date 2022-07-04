@@ -1,23 +1,26 @@
 <?php
 
-use App\Http\Controllers\aboutusController;
-use App\Http\Controllers\addAdminController;
-use App\Http\Controllers\adminCategoryController;
-use App\Http\Controllers\AlamatPengirimanController;
+use App\Models\Cart;
+use App\Models\User;
+use App\Models\order;
+use App\Models\product;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\cartController;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\registController;
+use App\Http\Controllers\aboutusController;
 use App\Http\Controllers\productController;
+use App\Http\Controllers\addAdminController;
+use App\Http\Controllers\transaksiController;
 use App\Http\Controllers\allProductController;
-use App\Http\Controllers\allCategoryController;
-use App\Http\Controllers\DashboardPostController;
-use App\Http\Controllers\profileAdminController;
-use App\Http\Controllers\profileDashboardController;
-use App\Http\Controllers\cartController;
 use App\Http\Controllers\CartDetailController;
-use App\Models\User;
-use App\Models\product;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\allCategoryController;
+use App\Http\Controllers\profileAdminController;
+use App\Http\Controllers\adminCategoryController;
+use App\Http\Controllers\DashboardPostController;
+use App\Http\Controllers\AlamatPengirimanController;
+use App\Http\Controllers\profileDashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,20 +65,29 @@ Route::get('/dashboard/products/allcategory', function () {
 */
 
 Route::get('/dashboard', function () {
+    $user = User::all()->where('isAdmin', 0);
     return view('/dashboard/index',[
         'title' => "Dashboard",
         'active' => "Dashboard",
         'product' => product::with('category')->get(),
-        'user' => User::all()->where('isAdmin', 0)
+        'user' => $user,
+        'order' => order::all()
     ]);
 })->middleware('isAdmin');
 
 Route::get('/dashboardmember', function () {
+    $user = auth()->user();
     return view('/dashboardmember/index',[
         'title' => "Dashboard",
         'active' => "Dashboard",
         'product' => product::with('category')->get(),
-        'user' => User::all()
+        'user' => $user,
+        'order' => order::whereHas('cart', function($q) use ($user) {
+            $q->where('status_cart', 'checkout');
+            $q->where('user_id', $user->id);
+        })
+        ->orderBy('created_at', 'desc')
+        ->paginate(20)
     ]);
 })->middleware('member');
 
@@ -116,26 +128,43 @@ Route::get('/dashboard/member', function(){
     ]);
 })->middleware('isAdmin');
 
+// Route::get('/dashboard/all-transaction', function(){
+//     return view('/dashboard/transaction/all-transaction',[
+//         'title' => 'All Transaction',
+//         'user' => User::all()
+//     ]);
+// })->middleware('isAdmin');
+
+// Route::get('/dashboard/detail', function(){
+//     return view('/dashboard/transaction/detail',[
+//         'title' => 'Detail Transaction',
+//         'user' => User::all()
+//     ]);
+// })->middleware('isAdmin');
+
+// Route::get('/dashboard/detail/edit', function(){
+//     return(view('/dashboard/transaction/edit-transaction',[
+//         'title' => 'Edit Transaction',
+//         'user' => User::all()
+//     ]));
+// })->middleware('isAdmin');
+
+Route::resource('/dashboardmember/checkout', transaksiController::class)->middleware('member');
+Route::get('/dashboardmember/all-transaction', [transaksiController::class, 'index'])->name('transaksi.index')->middleware('member');
+Route::get('/dashboardmember/{cart:id}/detail', [transaksiController::class, 'show'])->name('transaksi.show2')->middleware('member');
+Route::get('/dashboard/{cart:id}/edit', [transaksiController::class, 'edit'])->name('transaksi.edit')->middleware('isAdmin');
+Route::patch('/dashboard/{cart:id}/edit', [transaksiController::class, 'update'])->name('transaksi.update')->middleware('isAdmin');
+Route::get('/dashboard/{cart:id}/detail', [transaksiController::class, 'show'])->name('transaksi.show')->middleware('isAdmin');
+
 Route::get('/dashboard/all-transaction', function(){
-    return view('/dashboard/transaction/all-transaction',[
+    return view('dashboard/transaction/all-transaction',
+    [
+        'user' => User::all()->where('isAdmin', 1),
         'title' => 'All Transaction',
-        'user' => User::all()
+        'order' => order::all()
     ]);
-})->middleware('isAdmin');
-
-Route::get('/dashboard/detail', function(){
-    return view('/dashboard/transaction/detail',[
-        'title' => 'Detail Transaction',
-        'user' => User::all()
-    ]);
-})->middleware('isAdmin');
-
-Route::get('/dashboard/detail/edit', function(){
-    return(view('/dashboard/transaction/edit-transaction',[
-        'title' => 'Edit Transaction',
-        'user' => User::all()
-    ]));
-})->middleware('isAdmin');
+});
+// Route::post('/dashboardmember/checkout')
 
 // Route::get('/dashboard/profil', function(){
 //     return view('/dashboard/profil',[
@@ -169,6 +198,7 @@ Route::get('/dashboardmember/cart', function(){
 // Route::resource('/dashboardmember/cart', cartController::class)->middleware('member');
 // Route::resource('/dashboardmember/cartdetail', CartDetailController::class)->middleware('member');
 Route::resource('/dashboardmember/cart', cartController::class)->middleware('member');
+Route::get('/dashboardmember/checkout', [cartController::class, 'checkout'])->name('checkout')->middleware('member');
 Route::post('/dashboardmember/cartdetail', [CartDetailController::class, 'store'])->name('CartDetail')->middleware('member');
 Route::patch('/dashboardmember/cartdetail', [CartDetailController::class, 'update'])->name('CartDetail.update')->middleware('member');
 Route::patch('/dashboardmember/cartdetail/{id}', [CartDetailController::class, 'update'])->name('CartDetail.update')->middleware('member');
